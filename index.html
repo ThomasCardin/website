@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Engineer & Platform Architect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    
+    <header class="terminal-header">
+        <div class="terminal-bar">
+            <span class="terminal-title">[SYSTEM INITIALIZED]</span>
+            <div class="terminal-controls">
+                <span class="control minimize">_</span>
+                <span class="control maximize">□</span>
+                <span class="control close">X</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-terminal">
+        <div class="nav-content">
+            <a href="#home" class="nav-link glitch" data-text="HOME">HOME</a>
+            <a href="#about" class="nav-link glitch" data-text="ABOUT">ABOUT</a>
+            <a href="#skills" class="nav-link glitch" data-text="SKILLS">SKILLS</a>
+            <a href="#projects" class="nav-link glitch" data-text="PROJECTS">PROJECTS</a>
+            <a href="#contact" class="nav-link glitch" data-text="CONTACT">CONTACT</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="crt-effect">
+                <div class="hero-content">
+                    <h1 class="hero-title typing-effect">
+                        <span class="prompt">$</span> whoami
+                    </h1>
+                    <div class="hero-response">
+                        <p class="terminal-text">PLATFORM_ENGINEER</p>
+                        <p class="terminal-text">SYSTEMS_ARCHITECT</p>
+                        <p class="terminal-text">PERFORMANCE_OPTIMIZER</p>
+                    </div>
+                    <div class="hero-ascii">
+<pre class="ascii-art">
+    ╔═══════════════════════════════════╗
+    ║  GOVERNMENT TECH SPECIALIST       ║
+    ║  KUBERNETES ORCHESTRATOR          ║
+    ║  LOW-LEVEL PROGRAMMER             ║
+    ╚═══════════════════════════════════╝
+</pre>
+                    </div>
+                    <div class="blink-cursor">_</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section-container">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-prompt">~/about</span>
+                </div>
+                <div class="terminal-body">
+                    <h2 class="section-title"><span class="prompt">$</span> cat profile.md</h2>
+                    <div class="content-box">
+                        <p class="terminal-output">
+                            I am a passionate software developer with expertise in systems engineering and performance optimization, 
+                            currently advancing my career in government technology services. My technical focus centers on platform 
+                            engineering, Kubernetes orchestration, and systems-level programming, where I combine theoretical knowledge 
+                            with practical implementation to solve complex infrastructure challenges.
+                        </p>
+                        <p class="terminal-output">
+                            I have hands-on experience developing observability tools and performance debugging solutions, including 
+                            work on projects like Gobservability. My skill set spans modern containerization technologies, system 
+                            performance analysis, and I am actively expanding my expertise in low-level programming languages including 
+                            C and Rust.
+                        </p>
+                        <p class="terminal-output">
+                            I am particularly interested in computer architecture and operating systems fundamentals, which drives my 
+                            continuous learning in areas such as RISC-V processor design and kernel development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-container">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-prompt">~/skills</span>
+                </div>
+                <div class="terminal-body">
+                    <h2 class="section-title"><span class="prompt">$</span> ls -la /usr/bin/skills/</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3 class="skill-header">[PLATFORM_ENGINEERING]</h3>
+                            <ul class="skill-list">
+                                <li class="skill-item">► Kubernetes</li>
+                                <li class="skill-item">► Docker</li>
+                                <li class="skill-item">► CI/CD Pipelines</li>
+                                <li class="skill-item">► Infrastructure as Code</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-header">[SYSTEMS_PROGRAMMING]</h3>
+                            <ul class="skill-list">
+                                <li class="skill-item">► C Programming</li>
+                                <li class="skill-item">► Rust</li>
+                                <li class="skill-item">► Go</li>
+                                <li class="skill-item">► Performance Analysis</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-header">[OBSERVABILITY]</h3>
+                            <ul class="skill-list">
+                                <li class="skill-item">► Monitoring Systems</li>
+                                <li class="skill-item">► Debugging Tools</li>
+                                <li class="skill-item">► Performance Metrics</li>
+                                <li class="skill-item">► System Telemetry</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3 class="skill-header">[ARCHITECTURE]</h3>
+                            <ul class="skill-list">
+                                <li class="skill-item">► RISC-V Design</li>
+                                <li class="skill-item">► Kernel Development</li>
+                                <li class="skill-item">► OS Fundamentals</li>
+                                <li class="skill-item">► Computer Architecture</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section-container">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-prompt">~/projects</span>
+                </div>
+                <div class="terminal-body">
+                    <h2 class="section-title"><span class="prompt">$</span> git log --oneline</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-icon">[▣]</span>
+                                <h3 class="project-title">GOBSERVABILITY</h3>
+                            </div>
+                            <div class="project-content">
+                                <p class="project-description">
+                                    Advanced observability and performance debugging solution for distributed systems.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Go</span>
+                                    <span class="tech-tag">Observability</span>
+                                    <span class="tech-tag">Performance</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">[VIEW_CODE]</a>
+                                    <a href="#" class="project-link">[DEMO]</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-icon">[◈]</span>
+                                <h3 class="project-title">K8S_ORCHESTRATOR</h3>
+                            </div>
+                            <div class="project-content">
+                                <p class="project-description">
+                                    Custom Kubernetes orchestration tools for government infrastructure management.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Kubernetes</span>
+                                    <span class="tech-tag">Go</span>
+                                    <span class="tech-tag">DevOps</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">[VIEW_CODE]</a>
+                                    <a href="#" class="project-link">[DOCS]</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-header">
+                                <span class="project-icon">[◉]</span>
+                                <h3 class="project-title">RISC-V_PROCESSOR</h3>
+                            </div>
+                            <div class="project-content">
+                                <p class="project-description">
+                                    Experimental RISC-V processor design and kernel development project.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">C</span>
+                                    <span class="tech-tag">Assembly</span>
+                                    <span class="tech-tag">Hardware</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">[VIEW_CODE]</a>
+                                    <a href="#" class="project-link">[SPECS]</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-container">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-prompt">~/contact</span>
+                </div>
+                <div class="terminal-body">
+                    <h2 class="section-title"><span class="prompt">$</span> echo $CONTACT_INFO</h2>
+                    <div class="contact-content">
+                        <div class="contact-matrix">
+                            <p class="contact-line">
+                                <span class="contact-label">[EMAIL]</span>
+                                <a href="mailto:your.email@example.com" class="contact-link">your.email@example.com</a>
+                            </p>
+                            <p class="contact-line">
+                                <span class="contact-label">[GITHUB]</span>
+                                <a href="https://github.com/yourusername" class="contact-link">github.com/yourusername</a>
+                            </p>
+                            <p class="contact-line">
+                                <span class="contact-label">[LINKEDIN]</span>
+                                <a href="https://linkedin.com/in/yourusername" class="contact-link">linkedin.com/in/yourusername</a>
+                            </p>
+                        </div>
+                        <div class="contact-message">
+                            <p class="terminal-output">// Always interested in challenging projects and collaboration opportunities</p>
+                            <p class="terminal-output">// Let's build something amazing together</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="terminal-footer">
+        <div class="footer-content">
+            <p class="footer-text">SYSTEM STATUS: [ONLINE] | UPTIME: [∞] | VERSION: 1.0.0</p>
+            <p class="footer-copyright">© 2024 - Built with passion for low-level excellence</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
