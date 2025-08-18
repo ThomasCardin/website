@@ -219,71 +219,169 @@ document.addEventListener('DOMContentLoaded', function() {
         return 'Initiating hack sequence...';
     };
     
-    // Add retro boot sequence on first load
+    // Add retro loading bar on first load
     if (!sessionStorage.getItem('booted')) {
-        const bootScreen = document.createElement('div');
-        bootScreen.className = 'boot-screen';
-        bootScreen.innerHTML = `
-            <div class="boot-text">
-                <p>[BIOS] Initializing system...</p>
-                <p>[OK] Memory test passed</p>
-                <p>[OK] CPU detected</p>
-                <p>[OK] Loading portfolio.exe</p>
-                <p>[OK] System ready</p>
+        const loadingScreen = document.createElement('div');
+        loadingScreen.className = 'loading-screen';
+        loadingScreen.innerHTML = `
+            <div class="loading-container">
+                <h2 class="loading-title">THOMAS CARDIN PORTFOLIO</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">0%</div>
+                </div>
+                <div class="loading-messages">
+                    <div class="loading-message">
+                        Loading... <span class="loading-hourglass">⏳</span>
+                    </div>
+                </div>
+                <div class="big-spinner-overlay" style="display: none;">
+                </div>
             </div>
         `;
         
         const style = document.createElement('style');
         style.textContent = `
-            .boot-screen {
+            .loading-screen {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: #000;
+                background: #c3c3c3;
                 z-index: 9999;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                animation: fadeOut 1s ease-out 2s forwards;
+                font-family: 'MS Sans Serif', sans-serif;
             }
-            .boot-text {
-                color: #00ff00;
-                font-family: 'VT323', monospace;
-                font-size: 20px;
+            .loading-container {
+                background: #c3c3c3;
+                border: 2px outset #c3c3c3;
+                padding: 30px;
+                min-width: 400px;
+                text-align: center;
+                box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
             }
-            .boot-text p {
-                margin: 10px 0;
-                opacity: 0;
-                animation: fadeIn 0.5s forwards;
+            .loading-title {
+                color: #000;
+                font-size: 16px;
+                font-weight: bold;
+                margin: 0 0 10px 0;
             }
-            .boot-text p:nth-child(1) { animation-delay: 0.1s; }
-            .boot-text p:nth-child(2) { animation-delay: 0.3s; }
-            .boot-text p:nth-child(3) { animation-delay: 0.5s; }
-            .boot-text p:nth-child(4) { animation-delay: 0.7s; }
-            .boot-text p:nth-child(5) { animation-delay: 0.9s; }
-            
-            @keyframes fadeOut {
-                to {
-                    opacity: 0;
-                    visibility: hidden;
-                }
+            .loading-subtitle {
+                color: #000;
+                font-size: 12px;
+                margin-bottom: 20px;
             }
-            @keyframes fadeIn {
-                to {
-                    opacity: 1;
-                }
+            .progress-container {
+                margin: 20px 0;
+            }
+            .progress-bar {
+                width: 100%;
+                height: 20px;
+                background: #fff;
+                border: 1px inset #c3c3c3;
+                position: relative;
+                overflow: hidden;
+            }
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(90deg, #000080 0%, #0000ff 100%);
+                width: 0%;
+                transition: width 0.1s ease;
+            }
+            .progress-text {
+                color: #000;
+                font-size: 12px;
+                margin-top: 5px;
+            }
+            .loading-message {
+                color: #000;
+                font-size: 11px;
+                margin-top: 15px;
+                min-height: 15px;
+            }
+            .loading-hourglass {
+                display: inline-block;
+            }
+            .big-spinner-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(195, 195, 195, 0.7);
+                backdrop-filter: blur(3px);
+                image-rendering: pixelated;
+                transform: scale(1.05);
+            }
+            @keyframes spin {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
             }
         `;
         
         document.head.appendChild(style);
-        document.body.appendChild(bootScreen);
+        document.body.appendChild(loadingScreen);
         
-        setTimeout(() => {
-            bootScreen.remove();
-            style.remove();
-        }, 3000);
+        // Loading animation
+        const progressFill = loadingScreen.querySelector('.progress-fill');
+        const progressText = loadingScreen.querySelector('.progress-text');
+        const messageEl = loadingScreen.querySelector('.loading-message');
+        const bigSpinnerOverlay = loadingScreen.querySelector('.big-spinner-overlay');
+        
+        let progress = 0;
+        let isLagging = false;
+        
+        const loadingInterval = setInterval(() => {
+            // Normal loading until 85%
+            if (progress < 85) {
+                progress += Math.random() * 8 + 3;
+            }
+            // Slow down and lag around 90%
+            else if (progress < 90) {
+                progress += Math.random() * 2 + 0.5;
+            }
+            // Big lag at 90% - stays there for a while
+            else if (progress < 95) {
+                // Show big blur during lag
+                if (!isLagging) {
+                    isLagging = true;
+                    bigSpinnerOverlay.style.display = 'flex';
+                }
+                
+                if (Math.random() > 0.88) {
+                    progress += Math.random() * 2;
+                }
+            }
+            // Finally finish loading
+            else {
+                // Hide big spinner
+                if (isLagging) {
+                    bigSpinnerOverlay.style.display = 'none';
+                    isLagging = false;
+                }
+                progress += Math.random() * 8 + 2;
+            }
+            
+            if (progress > 100) progress = 100;
+            
+            progressFill.style.width = progress + '%';
+            progressText.textContent = Math.floor(progress) + '%';
+            
+            if (progress >= 100) {
+                clearInterval(loadingInterval);
+                bigSpinnerOverlay.style.display = 'none';
+                messageEl.textContent = 'Complete!';
+                setTimeout(() => {
+                    loadingScreen.remove();
+                    style.remove();
+                }, 800);
+            }
+        }, 120);
         
         sessionStorage.setItem('booted', 'true');
     }
