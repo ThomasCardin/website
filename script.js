@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start animation
     animateSiteName();
     
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Smooth scrolling for navigation links and project preview links
+    const navLinks = document.querySelectorAll('.nav-link, .quick-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -302,8 +302,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     document.querySelector('.control.close')?.addEventListener('click', function() {
-        if (confirm('Exit terminal?')) {
-            window.close();
-        }
+        // Try to close the window immediately without asking
+        window.close();
+        // Fallback: redirect to about:blank if window.close() doesn't work
+        setTimeout(() => {
+            window.location.href = 'about:blank';
+        }, 100);
     });
 });

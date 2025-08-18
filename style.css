@@ -770,6 +770,10 @@ main {
     align-items: center;
     gap: 10px;
     font-weight: bold;
+    background: var(--win95-bg);
+    padding: 10px;
+    border: 1px solid var(--win95-border-dark);
+    box-shadow: inset 1px 1px 0 var(--win95-border-light);
 }
 
 .content-box {
