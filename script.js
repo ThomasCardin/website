@@ -33,34 +33,37 @@ document.addEventListener('DOMContentLoaded', function() {
             'IX'             // roman numeral
         ];
         
-        // Type ninebasetwo.net
-        await typeText('ninebasetwo.net', 80);
-        
-        // Wait a bit
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Erase
-        await eraseText(60);
-        
-        // Wait a bit
-        await new Promise(resolve => setTimeout(resolve, 300));
-        
-        // Pick random equivalent
-        const randomEquivalent = equivalents[Math.floor(Math.random() * equivalents.length)];
-        await typeText(randomEquivalent, 100);
-        
-        // Wait before starting over
-        await new Promise(resolve => setTimeout(resolve, 2000));
-    }
-    
-    // Start animation and repeat
-    async function startAnimation() {
         while (true) {
-            await animateSiteName();
+            // Type ninebasetwo.net
+            await typeText('ninebasetwo.net', 80);
+            
+            // Wait a bit
+            await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Erase
+            await eraseText(60);
+            
+            // Wait a bit
+            await new Promise(resolve => setTimeout(resolve, 300));
+            
+            // Cycle through all equivalents
+            for (let equivalent of equivalents) {
+                await typeText(equivalent, 100);
+                
+                // Wait a bit
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Erase
+                await eraseText(60);
+                
+                // Wait before next
+                await new Promise(resolve => setTimeout(resolve, 300));
+            }
         }
     }
     
-    startAnimation();
+    // Start animation
+    animateSiteName();
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
