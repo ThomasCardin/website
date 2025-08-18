@@ -172,7 +172,7 @@ body::before {
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px 0 var(--win95-blue-dark);
-    animation: retro-blink 1.5s infinite;
+    /* Remove blink animation */
 }
 
 @keyframes retro-blink {
@@ -377,12 +377,15 @@ main {
 .hero-title {
     font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 20px;
-    color: var(--terminal-green);
-    text-shadow: 
-        0 0 10px var(--terminal-green),
-        0 0 20px var(--terminal-green),
-        0 0 30px var(--terminal-green);
-    animation: flicker 3s infinite;
+    color: var(--win95-blue-dark);
+    font-weight: bold;
+}
+
+.site-name-animation {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    color: var(--win95-blue-dark);
+    font-weight: bold;
 }
 
 @keyframes flicker {
@@ -463,7 +466,7 @@ main {
 
 .section-container {
     max-width: 1200px;
-    margin: 100px auto;
+    margin: -50px auto 50px auto;
     padding: 0 20px;
     position: relative;
     z-index: auto;

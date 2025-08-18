@@ -1,18 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Typing effect for hero title
-    const heroTitle = document.querySelector('.hero-title');
-    const originalText = heroTitle.innerHTML;
-    let charIndex = 0;
+    // Site name typing animation (ninebasetwo.net -> erase -> 0000 1001)
+    const siteNameElement = document.querySelector('.site-name-animation');
     
-    function typeWriter() {
-        if (charIndex < originalText.length) {
-            heroTitle.style.opacity = '1';
-            charIndex++;
+    async function typeText(text, delay = 100) {
+        siteNameElement.textContent = '';
+        for (let i = 0; i < text.length; i++) {
+            siteNameElement.textContent += text[i];
+            await new Promise(resolve => setTimeout(resolve, delay));
         }
     }
     
-    setTimeout(typeWriter, 100);
+    async function eraseText(delay = 50) {
+        const currentText = siteNameElement.textContent;
+        for (let i = currentText.length; i >= 0; i--) {
+            siteNameElement.textContent = currentText.substring(0, i);
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+    }
+    
+    async function animateSiteName() {
+        const equivalents = [
+            '0000 1001',     // binary
+            '0x9',           // hexadecimal  
+            '011',           // octal
+            '3²',            // square
+            '√81',           // square root
+            '10 - 1',        // subtraction
+            '18 / 2',        // division
+            '4.5 * 2',       // multiplication
+            '2³ + 1',        // power + addition
+            'IX'             // roman numeral
+        ];
+        
+        // Type ninebasetwo.net
+        await typeText('ninebasetwo.net', 80);
+        
+        // Wait a bit
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Erase
+        await eraseText(60);
+        
+        // Wait a bit
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
+        // Pick random equivalent
+        const randomEquivalent = equivalents[Math.floor(Math.random() * equivalents.length)];
+        await typeText(randomEquivalent, 100);
+        
+        // Wait before starting over
+        await new Promise(resolve => setTimeout(resolve, 2000));
+    }
+    
+    // Start animation and repeat
+    async function startAnimation() {
+        while (true) {
+            await animateSiteName();
+        }
+    }
+    
+    startAnimation();
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
