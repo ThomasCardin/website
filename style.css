@@ -32,14 +32,25 @@
 }
 
 body {
-    font-family: 'Share Tech Mono', monospace;
-    background: var(--win95-bg);
+    font-family: 'MS Sans Serif', 'Share Tech Mono', monospace;
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            var(--win95-bg) 0px,
+            var(--win95-bg) 2px,
+            var(--win95-border-light) 2px,
+            var(--win95-border-light) 4px
+        ),
+        var(--win95-bg);
     color: var(--win95-black);
     overflow-x: hidden;
-    line-height: 1.6;
+    line-height: 1.4;
     position: relative;
     min-height: 100vh;
     text-shadow: none;
+    image-rendering: pixelated;
+    font-smooth: never;
+    -webkit-font-smoothing: none;
 }
 
 body::before {
@@ -175,14 +186,21 @@ body::before {
 }
 
 .control {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 10px;
+    font-weight: bold;
     transition: all 0.3s;
+    background: var(--win95-bg);
+    border-top: 1px solid var(--win95-border-light);
+    border-left: 1px solid var(--win95-border-light);
+    border-right: 1px solid var(--win95-border-dark);
+    border-bottom: 1px solid var(--win95-border-dark);
+    margin: 0 2px;
 }
 
 .control.minimize {
@@ -201,8 +219,19 @@ body::before {
 }
 
 .control:hover {
-    transform: scale(1.2);
-    filter: brightness(1.5);
+    border-top: 1px solid var(--win95-border-dark);
+    border-left: 1px solid var(--win95-border-dark);
+    border-right: 1px solid var(--win95-border-light);
+    border-bottom: 1px solid var(--win95-border-light);
+}
+
+.control:active {
+    border-top: 2px solid var(--win95-border-dark);
+    border-left: 2px solid var(--win95-border-dark);
+    border-right: 1px solid var(--win95-border-light);
+    border-bottom: 1px solid var(--win95-border-light);
+    padding-top: 1px;
+    padding-left: 1px;
 }
 
 .nav-terminal {
@@ -297,8 +326,7 @@ body::before {
 main {
     margin-top: 100px;
     position: relative;
-    z-index: 50;
-    background: var(--win95-bg);
+    z-index: 10;
 }
 
 .hero {
@@ -427,8 +455,7 @@ main {
     margin: 100px auto;
     padding: 0 20px;
     position: relative;
-    z-index: 100;
-    background: var(--win95-bg);
+    z-index: auto;
 }
 
 .terminal-window {
@@ -439,11 +466,55 @@ main {
     border-bottom: 2px solid var(--win95-border-dark);
     overflow: hidden;
     box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.3),
-        inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+        6px 6px 12px rgba(0, 0, 0, 0.6),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.8),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.2);
     animation: fadeIn 1s ease-out;
     position: relative;
-    z-index: 200;
+    margin: 20px;
+    filter: sepia(10%) saturate(90%) contrast(95%);
+}
+
+/* Brendan Gregg style separators */
+.section-container::before {
+    content: "* * *";
+    display: block;
+    text-align: center;
+    margin: 40px 0;
+    color: var(--win95-black);
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+}
+
+.section-container:first-child::before {
+    display: none;
+}
+
+/* Brendan Gregg style content */
+.brendan-style {
+    background: var(--win95-white);
+    padding: 20px;
+    border: 1px solid var(--win95-border-dark);
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+}
+
+.brendan-style strong {
+    color: var(--win95-blue-dark);
+    font-weight: bold;
+}
+
+.brendan-style p {
+    margin: 15px 0;
+    color: var(--win95-black);
+    text-align: left;
+}
+
+.simple-hr {
+    border: none;
+    border-top: 1px solid var(--win95-border-dark);
+    margin: 20px 0;
+    width: 100%;
 }
 
 @keyframes fadeIn {
@@ -1023,11 +1094,26 @@ main {
     40% { filter: blur(0px) brightness(1); }
 }
 
-/* Scanlines intensity increase */
+/* Scanlines intensity increase + CRT aging */
 .scanlines {
-    opacity: 0.4;
+    opacity: 0.6;
     background-size: 100% 2px;
     animation-duration: 4s;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.05) 3px,
+            transparent 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0px,
+            rgba(120, 119, 108, 0.02) 1px,
+            transparent 3px
+        );
 }
 
 /* Enhanced CRT effect */
