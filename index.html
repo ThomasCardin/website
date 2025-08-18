@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systems Engineer & Platform Architect</title>
+    <title>Thomas Cardin | ninebasetwo.net</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     
     <header class="terminal-header">
         <div class="terminal-bar">
-            <span class="terminal-title">[SYSTEM INITIALIZED]</span>
+            <span class="terminal-title glitch-trash">[ninebasetwo.net]</span>
             <div class="terminal-controls">
                 <span class="control minimize">_</span>
                 <span class="control maximize">□</span>
@@ -39,21 +39,11 @@
             <div class="crt-effect">
                 <div class="hero-content">
                     <h1 class="hero-title typing-effect">
-                        <span class="prompt">$</span> whoami
+                        <span class="prompt">root@ninebasetwo:~#</span> uname -a
                     </h1>
                     <div class="hero-response">
-                        <p class="terminal-text">PLATFORM_ENGINEER</p>
-                        <p class="terminal-text">SYSTEMS_ARCHITECT</p>
-                        <p class="terminal-text">PERFORMANCE_OPTIMIZER</p>
-                    </div>
-                    <div class="hero-ascii">
-<pre class="ascii-art">
-    ╔═══════════════════════════════════╗
-    ║  GOVERNMENT TECH SPECIALIST       ║
-    ║  KUBERNETES ORCHESTRATOR          ║
-    ║  LOW-LEVEL PROGRAMMER             ║
-    ╚═══════════════════════════════════╝
-</pre>
+                        <p class="terminal-text">Linux ninebasetwo 6.6.0-arch1-1 #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux</p>
+                        <p class="terminal-text">thomas_cardin logged in on pts/0 from 127.0.0.1</p>
                     </div>
                     <div class="blink-cursor">_</div>
                 </div>
@@ -66,7 +56,7 @@
                     <span class="terminal-prompt">~/about</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">$</span> cat profile.md</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> ps aux --sort=-%cpu | head -10</h2>
                     <div class="content-box">
                         <p class="terminal-output">
                             I am a passionate software developer with expertise in systems engineering and performance optimization, 
@@ -95,7 +85,7 @@
                     <span class="terminal-prompt">~/skills</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">$</span> ls -la /usr/bin/skills/</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> kubectl get pods --all-namespaces | grep -v Running</h2>
                     <div class="skills-grid">
                         <div class="skill-category">
                             <h3 class="skill-header">[PLATFORM_ENGINEERING]</h3>
@@ -144,65 +134,68 @@
                     <span class="terminal-prompt">~/projects</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">$</span> git log --oneline</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"</h2>
                     <div class="projects-grid">
-                        <div class="project-card">
+                        <div class="project-card glitch-border">
                             <div class="project-header">
-                                <span class="project-icon">[▣]</span>
+                                <span class="project-icon corrupted">[██▓]</span>
+                                <h3 class="project-title">HOMELAB</h3>
+                            </div>
+                            <div class="project-content">
+                                <p class="project-description">
+                                    Infrastructure as Code for personal homelab. Kubernetes cluster avec ArgoCD, monitoring complet, et automatisation totale.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">K8s</span>
+                                    <span class="tech-tag">ArgoCD</span>
+                                    <span class="tech-tag">Terraform</span>
+                                    <span class="tech-tag">GitOps</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/ThomasCardin/homelab" target="_blank" class="project-link">[CLONE_REPO]</a>
+                                    <a href="https://github.com/ThomasCardin/homelab/blob/main/README.md" target="_blank" class="project-link">[README.md]</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card glitch-border">
+                            <div class="project-header">
+                                <span class="project-icon corrupted">[▒▒▓]</span>
+                                <h3 class="project-title">CALIDUM-ROTAE</h3>
+                            </div>
+                            <div class="project-content">
+                                <p class="project-description">
+                                    Système de déploiement GitOps pour infrastructure Kubernetes. Automatisation complète avec hot-reload et rollback intelligent.
+                                </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">GitOps</span>
+                                    <span class="tech-tag">Helm</span>
+                                    <span class="tech-tag">CI/CD</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/ClubCedille/calidum-rotae" target="_blank" class="project-link">[GIT_PULL]</a>
+                                    <a href="https://github.com/ClubCedille/calidum-rotae/issues" target="_blank" class="project-link">[ISSUES]</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card glitch-border">
+                            <div class="project-header">
+                                <span class="project-icon corrupted">[░▓█]</span>
                                 <h3 class="project-title">GOBSERVABILITY</h3>
                             </div>
                             <div class="project-content">
                                 <p class="project-description">
-                                    Advanced observability and performance debugging solution for distributed systems.
+                                    [COMING_SOON] Framework d'observabilité avancé en Go. Métriques, traces, et logs unifiés avec analyse en temps réel.
                                 </p>
                                 <div class="project-tech">
                                     <span class="tech-tag">Go</span>
-                                    <span class="tech-tag">Observability</span>
-                                    <span class="tech-tag">Performance</span>
+                                    <span class="tech-tag">eBPF</span>
+                                    <span class="tech-tag">OpenTelemetry</span>
+                                    <span class="tech-tag">Prometheus</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="#" class="project-link">[VIEW_CODE]</a>
-                                    <a href="#" class="project-link">[DEMO]</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-header">
-                                <span class="project-icon">[◈]</span>
-                                <h3 class="project-title">K8S_ORCHESTRATOR</h3>
-                            </div>
-                            <div class="project-content">
-                                <p class="project-description">
-                                    Custom Kubernetes orchestration tools for government infrastructure management.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Kubernetes</span>
-                                    <span class="tech-tag">Go</span>
-                                    <span class="tech-tag">DevOps</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link">[VIEW_CODE]</a>
-                                    <a href="#" class="project-link">[DOCS]</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-card">
-                            <div class="project-header">
-                                <span class="project-icon">[◉]</span>
-                                <h3 class="project-title">RISC-V_PROCESSOR</h3>
-                            </div>
-                            <div class="project-content">
-                                <p class="project-description">
-                                    Experimental RISC-V processor design and kernel development project.
-                                </p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">C</span>
-                                    <span class="tech-tag">Assembly</span>
-                                    <span class="tech-tag">Hardware</span>
-                                </div>
-                                <div class="project-links">
-                                    <a href="#" class="project-link">[VIEW_CODE]</a>
-                                    <a href="#" class="project-link">[SPECS]</a>
+                                    <a href="#" class="project-link corrupted">[ACCESS_DENIED]</a>
+                                    <a href="#" class="project-link corrupted">[REDACTED]</a>
                                 </div>
                             </div>
                         </div>
@@ -217,7 +210,7 @@
                     <span class="terminal-prompt">~/contact</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">$</span> echo $CONTACT_INFO</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> netstat -tulpn | grep LISTEN</h2>
                     <div class="contact-content">
                         <div class="contact-matrix">
                             <p class="contact-line">
@@ -226,7 +219,7 @@
                             </p>
                             <p class="contact-line">
                                 <span class="contact-label">[GITHUB]</span>
-                                <a href="https://github.com/yourusername" class="contact-link">github.com/yourusername</a>
+                                <a href="https://github.com/ThomasCardin" target="_blank" class="contact-link">github.com/ThomasCardin</a>
                             </p>
                             <p class="contact-line">
                                 <span class="contact-label">[LINKEDIN]</span>
@@ -245,8 +238,8 @@
 
     <footer class="terminal-footer">
         <div class="footer-content">
-            <p class="footer-text">SYSTEM STATUS: [ONLINE] | UPTIME: [∞] | VERSION: 1.0.0</p>
-            <p class="footer-copyright">© 2024 - Built with passion for low-level excellence</p>
+            <p class="footer-text corrupted">SYSTEM STATUS: [██RUPT█D] | UPTIME: [SEGFAULT] | KERNEL: 6.66.0-PANIC</p>
+            <p class="footer-copyright">© 2024 Thomas Cardin | sudo rm -rf --no-preserve-root /</p>
         </div>
     </footer>
 

@@ -9,6 +9,13 @@
     --terminal-bg-light: #1a1a1a;
     --terminal-border: #333333;
     --glow-intensity: 2px;
+    --retro-grey: #7f7f7f;
+    --retro-silver: #9f9f9f;
+    --retro-dark-grey: #3f3f3f;
+    --pale-grey: #b0b0b0;
+    --dim-grey: #6f6f6f;
+    --trash-neon: #39ff14;
+    --glitch-blue: #0088ff;
 }
 
 * {
@@ -669,6 +676,258 @@ main {
     font-size: 0.8rem;
 }
 
+/* Trash/Glitch effects */
+.glitch-trash {
+    animation: glitch-trash 3s infinite;
+    position: relative;
+}
+
+@keyframes glitch-trash {
+    0%, 100% {
+        text-shadow: 0 0 5px var(--terminal-green);
+    }
+    5% {
+        text-shadow: 
+            -2px 0 var(--pale-grey),
+            2px 0 var(--glitch-blue),
+            0 0 10px var(--terminal-green);
+        transform: skew(-0.5deg);
+    }
+    10% {
+        text-shadow: 
+            2px 0 var(--pale-grey),
+            -2px 0 var(--dim-grey),
+            0 0 10px var(--terminal-green);
+        transform: skew(0.5deg);
+    }
+    15% {
+        text-shadow: 0 0 5px var(--terminal-green);
+        transform: skew(0deg);
+    }
+}
+
+.corrupted {
+    position: relative;
+    animation: dataCorruption 4s infinite;
+}
+
+.corrupted::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--terminal-bg);
+    color: var(--pale-grey);
+    animation: corruption 2s infinite;
+    clip: rect(0, 900px, 0, 0);
+}
+
+@keyframes dataCorruption {
+    0%, 100% { 
+        filter: hue-rotate(0deg) saturate(1);
+    }
+    25% { 
+        filter: hue-rotate(90deg) saturate(1.5);
+    }
+    50% { 
+        filter: hue-rotate(180deg) saturate(2);
+    }
+    75% { 
+        filter: hue-rotate(270deg) saturate(1.5);
+    }
+}
+
+@keyframes corruption {
+    0% {
+        clip: rect(42px, 9999px, 44px, 0);
+        transform: skew(0.8deg);
+    }
+    5% {
+        clip: rect(12px, 9999px, 59px, 0);
+        transform: skew(0.4deg);
+    }
+    10% {
+        clip: rect(56px, 9999px, 3px, 0);
+        transform: skew(0.2deg);
+    }
+    15% {
+        clip: rect(87px, 9999px, 65px, 0);
+        transform: skew(-0.1deg);
+    }
+    20% {
+        clip: rect(23px, 9999px, 17px, 0);
+        transform: skew(0.6deg);
+    }
+    25% {
+        clip: rect(68px, 9999px, 49px, 0);
+        transform: skew(-0.3deg);
+    }
+}
+
+.glitch-text {
+    animation: textGlitch 5s infinite;
+}
+
+@keyframes textGlitch {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+    }
+    2% { 
+        opacity: 0.8;
+        transform: scale(1.01) skew(1deg);
+        color: var(--dim-grey);
+    }
+    4% { 
+        opacity: 1;
+        transform: scale(0.99) skew(-0.5deg);
+        color: var(--terminal-green);
+    }
+    6% { 
+        opacity: 0.9;
+        transform: scale(1.02);
+        color: var(--glitch-blue);
+    }
+    8% { 
+        opacity: 1;
+        transform: scale(1);
+        color: var(--terminal-green);
+    }
+}
+
+.glitch-border {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch-border::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--pale-grey), 
+        var(--glitch-blue), 
+        var(--retro-silver), 
+        var(--dim-grey)
+    );
+    z-index: -1;
+    opacity: 0;
+    animation: borderGlitch 6s infinite;
+}
+
+@keyframes borderGlitch {
+    0%, 95% { opacity: 0; }
+    96%, 100% { 
+        opacity: 0.8;
+        animation-timing-function: steps(12, end);
+    }
+}
+
+/* Enhanced noise */
+.noise {
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+}
+
+/* Terminal corruption */
+.terminal-output.corrupted {
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(176, 176, 176, 0.1) 2px,
+        rgba(176, 176, 176, 0.1) 4px
+    );
+}
+
+/* Project links corruption */
+.project-link.corrupted {
+    animation: linkCorruption 3s infinite;
+    position: relative;
+}
+
+.project-link.corrupted::after {
+    content: "[███████]";
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--pale-grey);
+    animation: staticNoise 0.1s infinite;
+}
+
+@keyframes linkCorruption {
+    0%, 90% { opacity: 1; }
+    91%, 95% { opacity: 0.3; color: var(--dim-grey); }
+    96%, 100% { opacity: 1; color: var(--terminal-cyan); }
+}
+
+@keyframes staticNoise {
+    0% { content: "[███████]"; }
+    10% { content: "[▓▓▓▓▓▓▓]"; }
+    20% { content: "[▒▒▒▒▒▒▒]"; }
+    30% { content: "[░░░░░░░]"; }
+    40% { content: "[███████]"; }
+    50% { content: "[ERROR!!]"; }
+    60% { content: "[CORRUPT]"; }
+    70% { content: "[███████]"; }
+    80% { content: "[NULL___]"; }
+    90% { content: "[SEGFAULT]"; }
+    100% { content: "[███████]"; }
+}
+
+/* Footer corruption */
+.footer-text.corrupted {
+    background: linear-gradient(90deg, 
+        var(--terminal-green) 0%, 
+        var(--pale-grey) 25%, 
+        var(--glitch-blue) 50%, 
+        var(--retro-silver) 75%, 
+        var(--terminal-red) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textCorruption 4s infinite;
+}
+
+@keyframes textCorruption {
+    0%, 100% { filter: blur(0px) brightness(1); }
+    10% { filter: blur(1px) brightness(1.5); }
+    20% { filter: blur(0px) brightness(0.8); }
+    30% { filter: blur(2px) brightness(1.2); }
+    40% { filter: blur(0px) brightness(1); }
+}
+
+/* Scanlines intensity increase */
+.scanlines {
+    opacity: 0.4;
+    background-size: 100% 2px;
+    animation-duration: 4s;
+}
+
+/* Enhanced CRT effect */
+.crt-effect::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(ellipse at center, 
+            rgba(0, 255, 0, 0.1) 0%, 
+            rgba(176, 176, 176, 0.05) 50%,
+            rgba(0, 0, 0, 0.8) 100%
+        );
+    pointer-events: none;
+    z-index: 2;
+    mix-blend-mode: multiply;
+}
+
 @media (max-width: 768px) {
     .nav-content {
         padding: 0 10px;
@@ -690,5 +949,10 @@ main {
     .contact-line {
         flex-direction: column;
         align-items: flex-start;
+    }
+    
+    /* Mobile glitch reduction */
+    .glitch-trash, .corrupted, .glitch-text {
+        animation-duration: 6s;
     }
 }
