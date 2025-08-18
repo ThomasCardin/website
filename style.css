@@ -1,16 +1,16 @@
 :root {
-    /* Windows 95/98 Color Scheme */
-    --win95-bg: #c0c0c0;
-    --win95-bg-dark: #808080;
-    --win95-bg-darker: #404040;
-    --win95-blue: #0066cc;
-    --win95-blue-dark: #003399;
-    --win95-blue-light: #3399ff;
+    /* Retro Windows Color Scheme - more authentic */
+    --win95-bg: #bfbfbf;
+    --win95-bg-dark: #7f7f7f;
+    --win95-bg-darker: #3f3f3f;
+    --win95-blue: #0055aa;
+    --win95-blue-dark: #002288;
+    --win95-blue-light: #3388dd;
     --win95-white: #ffffff;
     --win95-black: #000000;
-    --win95-red: #cc0000;
-    --win95-border-light: #dfdfdf;
-    --win95-border-dark: #404040;
+    --win95-red: #aa0000;
+    --win95-border-light: #dcdcdc;
+    --win95-border-dark: #3a3a3a;
     
     /* Terminal colors for compatibility */
     --terminal-green: #00ff00;
@@ -172,7 +172,18 @@ body::before {
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px 0 var(--win95-blue-dark);
-    animation: pulse 2s infinite;
+    animation: retro-blink 1.5s infinite;
+}
+
+@keyframes retro-blink {
+    0%, 50% { 
+        opacity: 1; 
+        color: var(--win95-white);
+    }
+    51%, 100% { 
+        opacity: 0.3; 
+        color: var(--win95-border-light);
+    }
 }
 
 @keyframes pulse {
@@ -517,6 +528,17 @@ main {
     width: 100%;
 }
 
+.interest-list {
+    margin: 10px 0;
+    padding-left: 20px;
+    color: var(--win95-black);
+}
+
+.interest-list li {
+    margin: 8px 0;
+    font-family: 'Courier New', monospace;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -652,27 +674,14 @@ main {
 }
 
 .skill-category {
-    background: rgba(0, 255, 0, 0.05);
-    border: 1px solid var(--terminal-green);
-    padding: 20px;
+    background: var(--win95-bg);
+    border: 1px solid var(--win95-border-dark);
+    padding: 15px;
     position: relative;
-    overflow: hidden;
-}
-
-.skill-category::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
-    animation: scan 3s infinite;
-}
-
-@keyframes scan {
-    0% { left: -100%; }
-    100% { left: 100%; }
+    margin: 10px 3px;
+    /* Badly aligned like broken CSS */
+    margin-left: 25px;
+    width: calc(100% - 40px);
 }
 
 .skill-header {
@@ -711,34 +720,19 @@ main {
 }
 
 .project-card {
-    background: var(--terminal-bg);
-    border: 2px solid var(--terminal-border);
-    padding: 25px;
-    transition: all 0.3s;
+    background: var(--win95-bg);
+    border: 1px solid var(--win95-border-dark);
+    padding: 20px;
     position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--terminal-cyan), transparent);
-    animation: slide 3s infinite;
-}
-
-@keyframes slide {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    margin: 12px 8px;
+    /* Broken alignment like bad CSS */
+    margin-left: 32px;
+    width: calc(100% - 50px);
 }
 
 .project-card:hover {
-    border-color: var(--terminal-cyan);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
+    border-color: var(--win95-blue);
+    /* No fancy transforms, just basic hover */
 }
 
 .project-header {
