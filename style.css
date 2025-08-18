@@ -1,21 +1,28 @@
 :root {
+    /* Windows 95/98 Color Scheme */
+    --win95-bg: #c0c0c0;
+    --win95-bg-dark: #808080;
+    --win95-bg-darker: #404040;
+    --win95-blue: #0066cc;
+    --win95-blue-dark: #003399;
+    --win95-blue-light: #3399ff;
+    --win95-white: #ffffff;
+    --win95-black: #000000;
+    --win95-red: #cc0000;
+    --win95-border-light: #dfdfdf;
+    --win95-border-dark: #404040;
+    
+    /* Terminal colors for compatibility */
     --terminal-green: #00ff00;
     --terminal-amber: #ffb000;
-    --terminal-red: #ff0040;
-    --terminal-cyan: #00ffff;
-    --terminal-purple: #ff00ff;
+    --terminal-red: #cc0000;
+    --terminal-cyan: #0099cc;
+    --terminal-purple: #6666cc;
     --terminal-white: #ffffff;
-    --terminal-bg: #0a0a0a;
-    --terminal-bg-light: #1a1a1a;
-    --terminal-border: #333333;
-    --glow-intensity: 2px;
-    --retro-grey: #7f7f7f;
-    --retro-silver: #9f9f9f;
-    --retro-dark-grey: #3f3f3f;
-    --pale-grey: #b0b0b0;
-    --dim-grey: #6f6f6f;
-    --trash-neon: #39ff14;
-    --glitch-blue: #0088ff;
+    --terminal-bg: #404040;
+    --terminal-bg-light: #808080;
+    --terminal-border: #000000;
+    --glow-intensity: 1px;
 }
 
 * {
@@ -26,12 +33,13 @@
 
 body {
     font-family: 'Share Tech Mono', monospace;
-    background: var(--terminal-bg);
-    color: var(--terminal-green);
+    background: var(--win95-bg);
+    color: var(--win95-black);
     overflow-x: hidden;
     line-height: 1.6;
     position: relative;
     min-height: 100vh;
+    text-shadow: none;
 }
 
 body::before {
@@ -140,13 +148,18 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(90deg, var(--terminal-bg-light) 0%, #0f0f0f 100%);
+    background: var(--win95-blue);
+    border-top: 2px solid var(--win95-border-light);
+    border-left: 2px solid var(--win95-border-light);
+    border-right: 2px solid var(--win95-border-dark);
+    border-bottom: 2px solid var(--win95-border-dark);
 }
 
 .terminal-title {
-    color: var(--terminal-green);
+    color: var(--win95-white);
     font-size: 14px;
-    text-shadow: 0 0 var(--glow-intensity) var(--terminal-green);
+    font-weight: bold;
+    text-shadow: 1px 1px 0 var(--win95-blue-dark);
     animation: pulse 2s infinite;
 }
 
@@ -210,14 +223,20 @@ body::before {
 }
 
 .nav-link {
-    color: var(--terminal-green);
+    color: var(--win95-blue-dark);
     text-decoration: none;
     font-size: 14px;
     position: relative;
-    padding: 5px 10px;
+    padding: 8px 15px;
+    background: var(--win95-bg);
+    border-top: 1px solid var(--win95-border-light);
+    border-left: 1px solid var(--win95-border-light);
+    border-right: 1px solid var(--win95-border-dark);
+    border-bottom: 1px solid var(--win95-border-dark);
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin: 0 5px;
 }
 
 .nav-link::before {
@@ -242,8 +261,12 @@ body::before {
 }
 
 .nav-link:hover {
-    color: var(--terminal-cyan);
-    text-shadow: 0 0 10px var(--terminal-cyan);
+    color: var(--win95-white);
+    background: var(--win95-blue);
+    border-top: 1px solid var(--win95-border-dark);
+    border-left: 1px solid var(--win95-border-dark);
+    border-right: 1px solid var(--win95-border-light);
+    border-bottom: 1px solid var(--win95-border-light);
     animation: glitch 0.3s infinite;
 }
 
@@ -328,8 +351,9 @@ main {
 }
 
 .prompt {
-    color: var(--terminal-cyan);
+    color: var(--win95-blue);
     animation: blink 1s infinite;
+    font-weight: bold;
 }
 
 @keyframes blink {
@@ -344,8 +368,10 @@ main {
 .terminal-text {
     font-size: 1.5rem;
     margin: 10px 0;
-    color: var(--terminal-amber);
-    text-shadow: 0 0 5px var(--terminal-amber);
+    color: var(--win95-black);
+    background: var(--win95-bg);
+    padding: 5px;
+    border: 1px solid var(--win95-border-dark);
     animation: typewriter 2s steps(20) forwards;
     opacity: 0;
 }
@@ -399,13 +425,15 @@ main {
 }
 
 .terminal-window {
-    background: var(--terminal-bg-light);
-    border: 2px solid var(--terminal-border);
-    border-radius: 5px;
+    background: var(--win95-bg);
+    border-top: 2px solid var(--win95-border-light);
+    border-left: 2px solid var(--win95-border-light);
+    border-right: 2px solid var(--win95-border-dark);
+    border-bottom: 2px solid var(--win95-border-dark);
     overflow: hidden;
     box-shadow: 
-        0 0 20px rgba(0, 255, 0, 0.1),
-        inset 0 0 20px rgba(0, 0, 0, 0.5);
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        inset 1px 1px 0 rgba(255, 255, 255, 0.5);
     animation: fadeIn 1s ease-out;
 }
 
@@ -421,27 +449,104 @@ main {
 }
 
 .terminal-header {
-    background: var(--terminal-bg);
+    background: var(--win95-blue);
     padding: 10px 20px;
-    border-bottom: 1px solid var(--terminal-border);
+    border-bottom: 2px solid var(--win95-border-dark);
+    border-top: 1px solid var(--win95-border-light);
 }
 
 .terminal-prompt {
-    color: var(--terminal-cyan);
+    color: var(--win95-white);
     font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 var(--win95-blue-dark);
 }
 
 .terminal-body {
     padding: 30px;
+    background: var(--win95-bg);
+}
+
+/* Hero info styles */
+.hero-info {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-box, .projects-preview, .contact-preview {
+    background: var(--win95-bg);
+    border-top: 2px solid var(--win95-border-light);
+    border-left: 2px solid var(--win95-border-light);
+    border-right: 2px solid var(--win95-border-dark);
+    border-bottom: 2px solid var(--win95-border-dark);
+    padding: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.info-title {
+    color: var(--win95-blue-dark);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.info-text {
+    color: var(--win95-black);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.project-links, .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.quick-link {
+    color: var(--win95-blue);
+    text-decoration: none;
+    padding: 8px 15px;
+    background: var(--win95-bg);
+    border-top: 1px solid var(--win95-border-light);
+    border-left: 1px solid var(--win95-border-light);
+    border-right: 1px solid var(--win95-border-dark);
+    border-bottom: 1px solid var(--win95-border-dark);
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    display: block;
+}
+
+.quick-link:hover {
+    background: var(--win95-bg-dark);
+    color: var(--win95-white);
+    border-top: 1px solid var(--win95-border-dark);
+    border-left: 1px solid var(--win95-border-dark);
+    border-right: 1px solid var(--win95-border-light);
+    border-bottom: 1px solid var(--win95-border-light);
+}
+
+.quick-link:active {
+    border-top: 2px solid var(--win95-border-dark);
+    border-left: 2px solid var(--win95-border-dark);
+    border-right: 2px solid var(--win95-border-light);
+    border-bottom: 2px solid var(--win95-border-light);
+    padding: 9px 14px 7px 16px;
 }
 
 .section-title {
-    color: var(--terminal-green);
+    color: var(--win95-blue-dark);
     font-size: 1.5rem;
     margin-bottom: 30px;
     display: flex;
     align-items: center;
     gap: 10px;
+    font-weight: bold;
 }
 
 .content-box {
@@ -452,10 +557,11 @@ main {
 }
 
 .terminal-output {
-    color: var(--terminal-white);
+    color: var(--win95-black);
     line-height: 1.8;
     margin-bottom: 15px;
-    opacity: 0.9;
+    opacity: 1;
+    background: var(--win95-bg);
 }
 
 .skills-grid {
@@ -490,10 +596,13 @@ main {
 }
 
 .skill-header {
-    color: var(--terminal-cyan);
+    color: var(--win95-blue-dark);
     font-size: 1.1rem;
     margin-bottom: 15px;
-    text-shadow: 0 0 5px var(--terminal-cyan);
+    font-weight: bold;
+    background: var(--win95-border-light);
+    padding: 5px 10px;
+    border: 1px solid var(--win95-border-dark);
 }
 
 .skill-list {
@@ -501,15 +610,16 @@ main {
 }
 
 .skill-item {
-    color: var(--terminal-white);
+    color: var(--win95-black);
     padding: 5px 0;
     transition: all 0.3s;
     cursor: default;
+    background: var(--win95-bg);
 }
 
 .skill-item:hover {
-    color: var(--terminal-green);
-    text-shadow: 0 0 5px var(--terminal-green);
+    color: var(--win95-blue-dark);
+    background: var(--win95-border-light);
     transform: translateX(10px);
 }
 
@@ -564,15 +674,17 @@ main {
 }
 
 .project-title {
-    color: var(--terminal-green);
+    color: var(--win95-blue-dark);
     font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .project-description {
-    color: var(--terminal-white);
+    color: var(--win95-black);
     margin-bottom: 15px;
     line-height: 1.6;
-    opacity: 0.8;
+    opacity: 1;
+    background: var(--win95-bg);
 }
 
 .project-tech {
@@ -676,7 +788,7 @@ main {
     font-size: 0.8rem;
 }
 
-/* Trash/Glitch effects */
+/* Windows 95 + Glitch effects */
 .glitch-trash {
     animation: glitch-trash 3s infinite;
     position: relative;
@@ -684,24 +796,24 @@ main {
 
 @keyframes glitch-trash {
     0%, 100% {
-        text-shadow: 0 0 5px var(--terminal-green);
+        text-shadow: 1px 1px 0 var(--win95-blue-dark);
     }
     5% {
         text-shadow: 
-            -2px 0 var(--pale-grey),
-            2px 0 var(--glitch-blue),
-            0 0 10px var(--terminal-green);
+            -2px 0 var(--win95-red),
+            2px 0 var(--win95-blue-light),
+            1px 1px 0 var(--win95-blue-dark);
         transform: skew(-0.5deg);
     }
     10% {
         text-shadow: 
-            2px 0 var(--pale-grey),
-            -2px 0 var(--dim-grey),
-            0 0 10px var(--terminal-green);
+            2px 0 var(--win95-bg-dark),
+            -2px 0 var(--win95-blue),
+            1px 1px 0 var(--win95-blue-dark);
         transform: skew(0.5deg);
     }
     15% {
-        text-shadow: 0 0 5px var(--terminal-green);
+        text-shadow: 1px 1px 0 var(--win95-blue-dark);
         transform: skew(0deg);
     }
 }

@@ -39,11 +39,36 @@
             <div class="crt-effect">
                 <div class="hero-content">
                     <h1 class="hero-title typing-effect">
-                        <span class="prompt">root@ninebasetwo:~#</span> uname -a
+                        <span class="prompt">root@ninebasetwo:~#</span> perf stat -a sleep 1
                     </h1>
                     <div class="hero-response">
                         <p class="terminal-text">Linux ninebasetwo 6.6.0-arch1-1 #1 SMP PREEMPT_DYNAMIC x86_64 GNU/Linux</p>
                         <p class="terminal-text">thomas_cardin logged in on pts/0 from 127.0.0.1</p>
+                    </div>
+                    
+                    <div class="hero-info">
+                        <div class="info-box">
+                            <h3 class="info-title">[SYSTEM_PROFILE] - Quick Overview</h3>
+                            <p class="info-text">Platform Engineer | K8s Orchestration | Systems Programming (Go/Python/C) | Government Tech Services</p>
+                        </div>
+                        
+                        <div class="projects-preview">
+                            <h3 class="info-title">[ACTIVE_REPOSITORIES]</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/ThomasCardin/homelab" target="_blank" class="quick-link">[HOMELAB] - K8s Infrastructure as Code</a>
+                                <a href="https://github.com/ClubCedille/calidum-rotae" target="_blank" class="quick-link">[CALIDUM-ROTAE] - GitOps Deployment System</a>
+                                <a href="#" class="quick-link corrupted">[GOBSERVABILITY] - Coming Soon</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-preview">
+                            <h3 class="info-title">[CONTACT_INFO]</h3>
+                            <div class="contact-links">
+                                <a href="https://github.com/ThomasCardin" target="_blank" class="quick-link">[GITHUB]</a>
+                                <a href="mailto:thomas@ninebasetwo.net" class="quick-link">[EMAIL]</a>
+                                <a href="https://www.linkedin.com/in/thomas-cardin/" target="_blank" class="quick-link">[LINKEDIN]</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="blink-cursor">_</div>
                 </div>
@@ -56,7 +81,7 @@
                     <span class="terminal-prompt">~/about</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> ps aux --sort=-%cpu | head -10</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> iostat -x 1 1</h2>
                     <div class="content-box">
                         <p class="terminal-output">
                             I am a passionate software developer with expertise in systems engineering and performance optimization, 
@@ -85,7 +110,7 @@
                     <span class="terminal-prompt">~/skills</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> kubectl get pods --all-namespaces | grep -v Running</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> vmstat 1 5</h2>
                     <div class="skills-grid">
                         <div class="skill-category">
                             <h3 class="skill-header">[PLATFORM_ENGINEERING]</h3>
@@ -99,9 +124,9 @@
                         <div class="skill-category">
                             <h3 class="skill-header">[SYSTEMS_PROGRAMMING]</h3>
                             <ul class="skill-list">
-                                <li class="skill-item">► C Programming</li>
-                                <li class="skill-item">► Rust</li>
                                 <li class="skill-item">► Go</li>
+                                <li class="skill-item">► Python</li>
+                                <li class="skill-item">► C Programming</li>
                                 <li class="skill-item">► Performance Analysis</li>
                             </ul>
                         </div>
@@ -134,7 +159,7 @@
                     <span class="terminal-prompt">~/projects</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> docker stats --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> sar -u -r 1 3</h2>
                     <div class="projects-grid">
                         <div class="project-card glitch-border">
                             <div class="project-header">
@@ -210,7 +235,7 @@
                     <span class="terminal-prompt">~/contact</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> netstat -tulpn | grep LISTEN</h2>
+                    <h2 class="section-title"><span class="prompt">root@ninebasetwo:~#</span> top -bn1 | grep "Cpu\|Mem"</h2>
                     <div class="contact-content">
                         <div class="contact-matrix">
                             <p class="contact-line">
@@ -223,7 +248,7 @@
                             </p>
                             <p class="contact-line">
                                 <span class="contact-label">[LINKEDIN]</span>
-                                <a href="https://linkedin.com/in/yourusername" class="contact-link">linkedin.com/in/yourusername</a>
+                                <a href="https://www.linkedin.com/in/thomas-cardin/" target="_blank" class="contact-link">linkedin.com/in/thomas-cardin</a>
                             </p>
                         </div>
                         <div class="contact-message">
