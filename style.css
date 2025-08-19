@@ -25,6 +25,32 @@
     --glow-intensity: 1px;
 }
 
+/* Dark Theme (Linux) */
+body.dark-theme {
+    --win95-bg: #1e1e1e;
+    --win95-bg-dark: #2d2d2d;
+    --win95-bg-darker: #404040;
+    --win95-blue: #00aaff;
+    --win95-blue-dark: #0088cc;
+    --win95-blue-light: #3388dd;
+    --win95-white: #ffffff;
+    --win95-black: #ffffff;
+    --win95-red: #ff5555;
+    --win95-border-light: #555555;
+    --win95-border-dark: #3c3c3c;
+    
+    --terminal-green: #00ff41;
+    --terminal-amber: #ffff55;
+    --terminal-red: #ff5555;
+    --terminal-cyan: #55ffff;
+    --terminal-purple: #ff55ff;
+    --terminal-white: #ffffff;
+    --terminal-bg: #1e1e1e;
+    --terminal-bg-light: #2d2d2d;
+    --terminal-border: #3c3c3c;
+    --glow-intensity: 2px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -55,6 +81,14 @@ body {
     image-rendering: pixelated;
     font-smooth: never;
     -webkit-font-smoothing: none;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme {
+    font-family: 'Ubuntu Mono', 'Courier New', monospace;
+    background: var(--win95-bg);
+    color: var(--win95-black);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 body::before {
@@ -147,6 +181,13 @@ body::before {
     border-bottom: 2px solid var(--win95-border-dark);
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .terminal-header {
+    background: var(--win95-bg-dark);
+    border-bottom: 1px solid var(--win95-border-dark);
+    box-shadow: 0 2px 8px rgba(0, 255, 65, 0.1);
 }
 
 /* slideDown animation removed */
@@ -155,13 +196,20 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 20px;
+    padding: 6px 16px;
     background: var(--win95-blue);
     border-top: 2px solid var(--win95-border-light);
     border-left: 2px solid var(--win95-border-light);
     border-right: 2px solid var(--win95-border-dark);
     border-bottom: 2px solid var(--win95-border-dark);
-    height: 40px;
+    height: 36px;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .terminal-bar {
+    background: linear-gradient(to bottom, var(--win95-bg-darker), var(--win95-bg-dark));
+    border: 1px solid var(--win95-border-dark);
+    border-radius: 6px 6px 0 0;
 }
 
 .terminal-title {
@@ -169,7 +217,12 @@ body::before {
     font-size: 14px;
     font-weight: bold;
     text-shadow: 1px 1px 0 var(--win95-blue-dark);
-    /* Remove blink animation */
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .terminal-title {
+    font-family: 'Ubuntu', sans-serif;
+    text-shadow: 0 0 5px var(--terminal-green);
 }
 
 @keyframes retro-blink {
@@ -190,25 +243,30 @@ body::before {
 
 .terminal-controls {
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
 }
 
 .control {
-    width: 18px;
-    height: 16px;
+    width: 22px;
+    height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: bold;
-    transition: all 0.3s;
+    font-family: 'MS Sans Serif', sans-serif;
+    transition: all 0.1s;
     background: var(--win95-bg);
-    border-top: 1px solid var(--win95-border-light);
-    border-left: 1px solid var(--win95-border-light);
-    border-right: 1px solid var(--win95-border-dark);
-    border-bottom: 1px solid var(--win95-border-dark);
-    margin: 0 2px;
+    border-top: 2px solid var(--win95-border-light);
+    border-left: 2px solid var(--win95-border-light);
+    border-right: 2px solid var(--win95-border-dark);
+    border-bottom: 2px solid var(--win95-border-dark);
+    margin: 0 1px;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
 }
 
 .control.minimize {
@@ -226,20 +284,74 @@ body::before {
     text-shadow: 0 0 5px var(--terminal-red);
 }
 
+.theme-toggle {
+    background: var(--win95-bg);
+    border-top: 2px solid var(--win95-border-light);
+    border-left: 2px solid var(--win95-border-light);
+    border-right: 2px solid var(--win95-border-dark);
+    border-bottom: 2px solid var(--win95-border-dark);
+    color: var(--win95-black);
+    padding: 2px 6px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-weight: bold;
+    transition: all 0.1s;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+    min-width: 26px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+    background: var(--win95-border-light);
+}
+
+.theme-toggle:active {
+    border-top: 2px solid var(--win95-border-dark);
+    border-left: 2px solid var(--win95-border-dark);
+    border-right: 2px solid var(--win95-border-light);
+    border-bottom: 2px solid var(--win95-border-light);
+    background: var(--win95-bg-dark);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transform: translate(1px, 1px);
+}
+
+body.dark-theme .theme-toggle {
+    background: var(--win95-bg-dark);
+    border-top: 2px solid var(--win95-border-light);
+    border-left: 2px solid var(--win95-border-light);
+    border-right: 2px solid var(--win95-border-dark);
+    border-bottom: 2px solid var(--win95-border-dark);
+    color: var(--win95-white);
+}
+
+body.dark-theme .theme-toggle:hover {
+    background: var(--win95-bg-darker);
+    box-shadow: 0 0 8px var(--terminal-green);
+}
+
+body.dark-theme .theme-toggle:active {
+    background: var(--win95-bg-darker);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .control:hover {
-    border-top: 1px solid var(--win95-border-dark);
-    border-left: 1px solid var(--win95-border-dark);
-    border-right: 1px solid var(--win95-border-light);
-    border-bottom: 1px solid var(--win95-border-light);
+    background: var(--win95-border-light);
 }
 
 .control:active {
     border-top: 2px solid var(--win95-border-dark);
     border-left: 2px solid var(--win95-border-dark);
-    border-right: 1px solid var(--win95-border-light);
-    border-bottom: 1px solid var(--win95-border-light);
-    padding-top: 1px;
-    padding-left: 1px;
+    border-right: 2px solid var(--win95-border-light);
+    border-bottom: 2px solid var(--win95-border-light);
+    background: var(--win95-bg-dark);
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transform: translate(1px, 1px);
 }
 
 .nav-terminal {
@@ -249,10 +361,19 @@ body::before {
     right: 0;
     background: var(--win95-bg);
     border-bottom: 2px solid var(--win95-border-dark);
+    border-top: 1px solid var(--win95-border-light);
     z-index: 999;
     padding: 12px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     margin-top: 0;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .nav-terminal {
+    background: var(--win95-bg);
+    border-bottom: 1px solid var(--terminal-green);
+    border-top: none;
+    box-shadow: 0 2px 8px rgba(0, 255, 65, 0.2);
 }
 
 .nav-content {
@@ -275,7 +396,7 @@ body::before {
     border-left: 1px solid var(--win95-border-light);
     border-right: 1px solid var(--win95-border-dark);
     border-bottom: 1px solid var(--win95-border-dark);
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin: 0 3px;
@@ -283,6 +404,15 @@ body::before {
     display: inline-block;
     height: 32px;
     line-height: 20px;
+}
+
+body.dark-theme .nav-link {
+    color: var(--terminal-green);
+    background: var(--win95-bg-dark);
+    border: 1px solid var(--win95-border-light);
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0, 255, 65, 0.3);
+    text-shadow: 0 0 3px var(--terminal-green);
 }
 
 .nav-link::before {
@@ -314,6 +444,14 @@ body::before {
     border-right: 1px solid var(--win95-border-light);
     border-bottom: 1px solid var(--win95-border-light);
     animation: glitch 0.3s infinite;
+}
+
+body.dark-theme .nav-link:hover {
+    color: var(--win95-bg);
+    background: var(--terminal-green);
+    border-color: var(--terminal-green);
+    box-shadow: 0 0 20px var(--terminal-green), inset 0 0 15px rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
 }
 
 @keyframes glitch {
@@ -385,6 +523,11 @@ main {
     font-weight: bold;
 }
 
+body.dark-theme .hero-title {
+    color: var(--win95-blue);
+    text-shadow: 0 0 10px var(--win95-blue);
+}
+
 .site-name-animation {
     display: inline-block;
     font-family: 'Courier New', monospace;
@@ -392,6 +535,12 @@ main {
     font-weight: bold;
     position: relative;
     animation: glitch-trash 3s infinite;
+}
+
+body.dark-theme .site-name-animation {
+    font-family: 'Ubuntu Mono', monospace;
+    color: var(--terminal-green);
+    text-shadow: 0 0 5px var(--terminal-green);
 }
 
 .site-name-animation::after {
@@ -402,6 +551,11 @@ main {
     background: var(--win95-blue);
     margin-left: 3px;
     vertical-align: text-bottom;
+}
+
+body.dark-theme .site-name-animation::after {
+    background: var(--terminal-green);
+    box-shadow: 0 0 5px var(--terminal-green);
 }
 
 @keyframes cursor-blink {
@@ -516,6 +670,16 @@ main {
     filter: sepia(10%) saturate(90%) contrast(95%);
 }
 
+body.dark-theme .terminal-window {
+    background: var(--win95-bg);
+    border: 1px solid var(--win95-border-dark);
+    border-radius: 8px;
+    box-shadow: 
+        0 4px 20px rgba(0, 255, 65, 0.1),
+        0 0 0 1px rgba(0, 255, 65, 0.2);
+    filter: none;
+}
+
 /* Brendan Gregg style separators */
 .section-container::before {
     content: "* * *";
@@ -538,6 +702,13 @@ main {
     border: 1px solid var(--win95-border-dark);
     font-family: 'Courier New', monospace;
     line-height: 1.8;
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .brendan-style {
+    background: var(--win95-bg-dark);
+    border: 1px solid var(--win95-border-light);
+    color: var(--win95-white);
 }
 
 .brendan-style strong {
@@ -545,10 +716,19 @@ main {
     font-weight: bold;
 }
 
+body.dark-theme .brendan-style strong {
+    color: var(--terminal-green);
+    text-shadow: 0 0 3px var(--terminal-green);
+}
+
 .brendan-style p {
     margin: 15px 0;
     color: var(--win95-black);
     text-align: left;
+}
+
+body.dark-theme .brendan-style p {
+    color: var(--win95-white);
 }
 
 .simple-hr {
@@ -564,9 +744,17 @@ main {
     color: var(--win95-black);
 }
 
+body.dark-theme .interest-list {
+    color: var(--win95-white);
+}
+
 .interest-list li {
     margin: 8px 0;
     font-family: 'Courier New', monospace;
+}
+
+body.dark-theme .interest-list li {
+    color: var(--win95-white);
 }
 
 /* Kernel Trace Styling */
@@ -777,6 +965,13 @@ main {
     background: var(--win95-bg);
     padding: 15px;
     padding-left: 40px;
+}
+
+body.dark-theme .section-title {
+    color: var(--win95-blue);
+    background: transparent;
+    border-left: 4px solid var(--terminal-green);
+    text-shadow: 0 0 8px var(--win95-blue);
 }
 
 .content-box {

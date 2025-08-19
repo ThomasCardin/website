@@ -137,7 +137,20 @@ document.addEventListener('DOMContentLoaded', function() {
         return 'Initiating hack sequence...';
     };
     
-    // Loading screen removed - site loads immediately
+    // Theme toggle functionality
+    function toggleTheme() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    }
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+    
+    // Make toggle function global
+    window.toggleTheme = toggleTheme;
     
     // Terminal controls functionality
     document.querySelector('.control.minimize')?.addEventListener('click', function() {
