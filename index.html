@@ -7,64 +7,50 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="scanlines"></div>
-    <div class="noise"></div>
-    
-    <header class="terminal-header">
-        <div class="terminal-bar">
-            <span class="terminal-title glitch-trash">[ninebasetwo.net]</span>
-            <div class="terminal-controls">
-                <span class="control minimize">_</span>
-                <span class="control maximize">□</span>
-                <span class="control close">X</span>
-                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌓</button>
-            </div>
-        </div>
-    </header>
-
-    <nav class="nav-terminal">
-        <div class="nav-content">
-            <a href="#home" class="nav-link glitch" data-text="HOME">HOME</a>
-            <a href="#about" class="nav-link glitch" data-text="ABOUT">ABOUT</a>
-            <a href="#skills" class="nav-link glitch" data-text="SKILLS">SKILLS</a>
-            <a href="#projects" class="nav-link glitch" data-text="PROJECTS">PROJECTS</a>
-            <a href="#contact" class="nav-link glitch" data-text="CONTACT">CONTACT</a>
+    <nav class="floating-nav">
+        <div class="floating-nav-content">
+            <a href="#home" class="nav-link" data-text="Home">Home</a>
+            <a href="#about" class="nav-link" data-text="About">About</a>
+            <a href="#skills" class="nav-link" data-text="Skills">Skills</a>
+            <a href="#projects" class="nav-link" data-text="Projects">Projects</a>
+            <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+            <button class="lang-toggle" onclick="toggleLanguage()" title="Change language" aria-label="Change language">
+                <span class="lang-text">EN</span>
+            </button>
+            <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">
+                <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
     </nav>
 
     <main>
         <section id="home" class="hero">
-            <div class="crt-effect">
+            <div class="hero-container">
                 <div class="hero-content">
-                    <h1 class="hero-title typing-effect">
+                    <p class="hero-name">Thomas Cardin</p>
+                    <h1 class="hero-title">
                         <span class="site-name-animation"></span>
                     </h1>
-                    
-                    <div class="hero-info">
-                        <div class="info-box">
-                            <h3 class="info-title">[QUICK_OVERVIEW]</h3>
-                            <p class="info-text">Platform engineering | K8s orchestration | Systems programming (Go/Python/C) | Performance optimization</p>
-                        </div>
-                        
-                        <div class="projects-preview">
-                            <h3 class="info-title">[PROJECTS]</h3>
-                            <div class="project-links">
-                                <a href="#projects" class="quick-link">Homelab</a>
-                                <a href="#projects" class="quick-link">Calidum-rotae</a>
-                                <a href="#projects" class="quick-link">Gobservability</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-preview">
-                            <h3 class="info-title">[CONTACT_INFO]</h3>
-                            <div class="contact-links">
-                                <a href="https://github.com/ThomasCardin" target="_blank" class="quick-link">Github</a>
-                                <a href="https://www.linkedin.com/in/thomas-cardin/" target="_blank" class="quick-link">Linkedin</a>
-                            </div>
-                        </div>
+                    <p class="hero-tagline">SRE • Platform Engineer • Cloud Native Enthusiast</p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="cta-button">View Projects</a>
+                        <a href="#contact" class="cta-button cta-secondary">Get in touch</a>
                     </div>
                 </div>
             </div>
@@ -76,32 +62,33 @@
                     <span class="terminal-prompt">About</span>
                 </div>
                 <div class="terminal-body">
-                    <h2 class="section-title">Thomas Cardin - DevSecOps</h2>
+                    <h2 class="section-title"><span class="section-number">01.</span> Thomas Cardin </h2>
                     <div class="brendan-style">
                         <p><strong>Professional summary</strong></p>
-                        <p>I am a passionate systems engineer with expertise in Kubernetes application deployment and maintenance, currently working in government services. My core strengths include strong communication skills and deep technical knowledge in container orchestration and infrastructure management. I have a genuine passion for system-level diagnostics and performance troubleshooting, with experience spanning from application layers down to kernel-level analysis.</p>
-                        
-                        <p>I am actively expanding my expertise in systems performance monitoring and eBPF technologies, with hands-on experience building custom diagnostic tools and performance monitoring solutions. My approach combines solid DevOps practices with low-level systems knowledge, enabling me to diagnose and resolve complex technical issues across multiple infrastructure layers.</p>
-                        
-                        <p>Currently developing monitoring solutions and continuously learning cutting-edge technologies like systems performance analysis and Berkeley Packet Filter (eBPF) to enhance my diagnostic capabilities. I thrive in collaborative environments and am committed to continuous learning and professional growth in the systems engineering field.</p>
+                        <p>I am a passionate infrastructure engineer with expertise in Kubernetes application deployment and maintenance. My core strengths include strong communication skills and deep technical knowledge in container orchestration, cloud computing, and infrastructure management. I have a genuine passion for system-level diagnostics and performance troubleshooting, with experience spanning from application layers down to kernel-level analysis.</p>
+
+                        <p>I am actively expanding my expertise in cloud-native technologies, systems performance monitoring, and eBPF technologies, with hands-on experience building custom diagnostic tools and performance monitoring solutions. My approach combines solid DevOps practices with low-level systems knowledge, enabling me to diagnose and resolve complex technical issues across multiple infrastructure layers.</p>
+
+                        <p>Currently developing monitoring solutions and continuously learning cutting-edge technologies like cloud computing platforms, systems performance analysis, and extended Berkeley Packet Filter (eBPF) to enhance my diagnostic capabilities. I thrive in collaborative environments and am committed to continuous learning and professional growth in the systems engineering field.</p>
                         
                         <hr class="simple-hr">
                         
-                        <p><strong>Technical interests:</strong></p>
+                        <p><strong>Technical interests & learning:</strong></p>
                         <ul class="interest-list">
-                            <li>eBPF & Kernel Programming (kprobe/uprobe development)</li>
-                            <li>Systems Performance Analysis & Optimization</li>
-                            <li>Container Runtime Internals & cgroups v2</li>
-                            <li>Distributed Systems Architecture</li>
-                            <li>Observability Tools Development (Prometheus, Grafana, OpenTelemetry)</li>
-                            <li>Linux Kernel Tracing & Debugging</li>
+                            <li>Kubernetes & container orchestration</li>
+                            <li>Cloud computing & infrastructure</li>
+                            <li>Networking & service mesh (Cilium)</li>
+                            <li>Observability tools (Prometheus, Grafana, OpenTelemetry)</li>
+                            <li>Systems performance analysis & optimization</li>
+                            <li>eBPF & Kernel Programming</li>
+                            <li>Distributed systems architecture</li>
                         </ul>
                         
                         <hr class="simple-hr">
                         
                         <p><strong>Collaboration & communication:</strong></p>
                         <ul class="interest-list">
-                            <li>Extroverted team player - Passionate about collaboration and knowledge sharing</li>
+                            <li>Extroverted team player - passionate about collaboration and knowledge sharing</li>
                             <li>Team-oriented problem solving and collaborative development</li>
                             <li>Technical discussion and knowledge sharing with peers</li>
                             <li>Cross-functional communication between dev and ops teams</li>
@@ -119,139 +106,127 @@
         </section>
 
         <section id="skills" class="section-container">
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <span class="terminal-prompt">Technical skills</span>
+            <h2 class="section-title"><span class="section-number">02.</span> Technical skills</h2>
+            <div class="bento-grid">
+                <div class="bento-item">
+                    <h3 class="skill-header">Platform & Cloud Engineering</h3>
+                    <p class="skill-description">Expert in container orchestration with Kubernetes and Docker, designing robust CI/CD pipelines, and implementing Infrastructure as Code using Terraform and Ansible. Proficient in GitOps workflows, cloud computing platforms (infonuagique), and advanced networking with service mesh technologies like Cilium.</p>
                 </div>
-                <div class="terminal-body">
-                    <h2 class="section-title">Core competencies</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3 class="skill-header">[PLATFORM_ENGINEERING]</h3>
-                            <ul class="skill-list">
-                                <li class="skill-item">► Kubernetes & Docker orchestration</li>
-                                <li class="skill-item">► CI/CD pipeline design</li>
-                                <li class="skill-item">► Infrastructure as Code (Terraform, Ansible)</li>
-                                <li class="skill-item">► GitOps workflows</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[PROGRAMMING_LANGUAGES]</h3>
-                            <ul class="skill-list">
-                                <li class="skill-item">► Go microservices & gRPC</li>
-                                <li class="skill-item">► Python automation & scripting</li>
-                                <li class="skill-item">► C systems programming</li>
-                                <li class="skill-item">► Shell scripting & Bash</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[SYSTEMS_MONITORING]</h3>
-                            <ul class="skill-list">
-                                <li class="skill-item">► eBPF & kernel tracing</li>
-                                <li class="skill-item">► Performance debugging</li>
-                                <li class="skill-item">► Metrics collection & analysis</li>
-                                <li class="skill-item">► System telemetry & observability</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[SOFT_SKILLS]</h3>
-                            <ul class="skill-list">
-                                <li class="skill-item">► Extroverted team collaboration</li>
-                                <li class="skill-item">► Technical mentoring</li>
-                                <li class="skill-item">► Cross-functional communication</li>
-                                <li class="skill-item">► Problem-solving leadership</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[LOW_LEVEL_SYSTEMS]</h3>
-                            <ul class="skill-list">
-                                <li class="skill-item">► Kernel development & debugging</li>
-                                <li class="skill-item">► Operating systems internals</li>
-                                <li class="skill-item">► Computer architecture</li>
-                                <li class="skill-item">► Hardware-software integration</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[SECURITY_DEVOPS]</h3>
-                            <ul class="skill-list">
-                                <li class="skill-item">► DevSecOps practices</li>
-                                <li class="skill-item">► Container security</li>
-                                <li class="skill-item">► System hardening</li>
-                                <li class="skill-item">► Security monitoring</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="bento-item">
+                    <h3 class="skill-header">Programming</h3>
+                    <p class="skill-description">Strong programming skills in Go for microservices and gRPC applications, Python for automation and scripting, and C for systems programming. Experienced in shell scripting and Bash for infrastructure automation and tooling development.</p>
+                </div>
+                <div class="bento-item">
+                    <h3 class="skill-header">Systems & Observability</h3>
+                    <p class="skill-description">Strong understanding of systems performance analysis and debugging complex issues. Actively learning eBPF and kernel tracing technologies. Experienced in building observability solutions with metrics collection, system telemetry, and performance monitoring using Prometheus, Grafana, and OpenTelemetry.</p>
+                </div>
+                <div class="bento-item">
+                    <h3 class="skill-header">Security & DevOps</h3>
+                    <p class="skill-description">Implementing DevSecOps practices to integrate security throughout the development lifecycle. Specialized in container security, system hardening techniques, and comprehensive security monitoring to ensure robust and compliant infrastructure.</p>
                 </div>
             </div>
         </section>
 
         <section id="projects" class="section-container">
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <span class="terminal-prompt">Projects</span>
+            <h2 class="section-title"><span class="section-number">03.</span> Featured projects</h2>
+            <div class="bento-grid">
+                <div class="bento-item">
+                    <h3 class="skill-header">Homelab</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">K3S</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">Cilium</span>
+                    </div>
+                    <p class="project-description">K3S Kubernetes cluster on Turing Pi 2 board with 4 RK1 nodes. Ansible-managed infrastructure with Cilium networking and custom hardware configuration.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/ThomasCardin/homelab" target="_blank" class="skill-link">View Project</a>
+                        <a href="https://github.com/ThomasCardin/homelab/blob/main/README.md" target="_blank" class="skill-link">Documentation</a>
+                    </div>
                 </div>
-                <div class="terminal-body">
-                    <h2 class="section-title">Featured projects</h2>
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3 class="skill-header">[HOMELAB]</h3>
-                            <p class="project-description">K3S Kubernetes cluster on Turing Pi 2 board with 4 RK1 nodes. Ansible-managed infrastructure with Cilium networking and custom hardware configuration.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/ThomasCardin/homelab" target="_blank" class="skill-link">[LINK]</a>
-                                <a href="https://github.com/ThomasCardin/homelab/blob/main/README.md" target="_blank" class="skill-link">[README]</a>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[CALIDUM-ROTAE]</h3>
-                            <p class="project-description">Go microservice for routing admission requests to different messaging platforms using gRPC architecture. Backend service with distributed messaging capabilities.</p>
-                            <div class="project-links">
-                                <a href="https://github.com/ClubCedille/calidum-rotae" target="_blank" class="skill-link">[LINK]</a>
-                                <a href="https://github.com/ClubCedille/calidum-rotae/issues" target="_blank" class="skill-link">[README]</a>
-                            </div>
-                        </div>
-                        <div class="skill-category">
-                            <h3 class="skill-header">[GOBSERVABILITY]</h3>
-                            <p class="project-description">Advanced observability framework in Go with unified metrics, traces, and logs. Real-time analysis capabilities powered by eBPF monitoring.</p>
-                            <div class="project-links">
-                                <a href="#" class="skill-link">[LINK]</a>
-                                <a href="#" class="skill-link">[README]</a>
-                            </div>
-                        </div>
+                <div class="bento-item">
+                    <h3 class="skill-header">Calidum-Rotae</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">gRPC</span>
+                        <span class="tech-tag">Microservices</span>
+                    </div>
+                    <p class="project-description">Go microservice for routing admission requests to different messaging platforms using gRPC architecture. Backend service with distributed messaging capabilities.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/ClubCedille/calidum-rotae" target="_blank" class="skill-link">View Project</a>
+                        <a href="https://github.com/ClubCedille/calidum-rotae/issues" target="_blank" class="skill-link">Documentation</a>
+                    </div>
+                </div>
+                <div class="bento-item">
+                    <h3 class="skill-header">Gobservability</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">eBPF</span>
+                        <span class="tech-tag">Observability</span>
+                        <span class="tech-tag">Monitoring</span>
+                    </div>
+                    <p class="project-description">Advanced observability framework in Go with unified metrics, traces, and logs. Real-time analysis capabilities powered by eBPF monitoring.</p>
+                    <div class="project-links">
+                        <a href="#" class="skill-link">View Project</a>
+                        <a href="#" class="skill-link">Documentation</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="section-container">
-            <div class="terminal-window">
-                <div class="terminal-header">
-                    <span class="terminal-prompt">Contact information</span>
-                </div>
-                <div class="terminal-body">
-                    <h2 class="section-title">Get in touch</h2>
-                    <div class="contact-content">
-                        <div class="contact-matrix">
-                            <p class="contact-line">
-                                <span class="contact-label">Github</span>
-                                <a href="https://github.com/ThomasCardin" target="_blank" class="contact-link">github.com/ThomasCardin</a>
-                            </p>
-                            <p class="contact-line">
-                                <span class="contact-label">Linkedin</span>
-                                <a href="https://www.linkedin.com/in/thomas-cardin/" target="_blank" class="contact-link">linkedin.com/in/thomas-cardin</a>
-                            </p>
-                        </div>
+            <h2 class="section-title"><span class="section-number">04.</span> Get in touch</h2>
+            <div class="bento-grid">
+                <div class="bento-item">
+                    <h3 class="skill-header">Contact</h3>
+                    <div class="contact-links-modern">
+                        <a href="https://github.com/ThomasCardin" target="_blank" class="contact-card">
+                            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <div class="contact-info">
+                                <span class="contact-platform">Github</span>
+                                <span class="contact-username">@ThomasCardin</span>
+                            </div>
+                            <svg class="contact-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/thomas-cardin/" target="_blank" class="contact-card">
+                            <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                            <div class="contact-info">
+                                <span class="contact-platform">LinkedIn</span>
+                                <span class="contact-username">Thomas Cardin</span>
+                            </div>
+                            <svg class="contact-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="terminal-footer">
+    <footer class="modern-footer">
         <div class="footer-content">
-            <p class="footer-text corrupted">SYSTEM STATUS: [██RUPT█D] | UPTIME: [SEGFAULT] | KERNEL: 6.66.0-PANIC</p>
-            <p class="footer-copyright">© 2025 Thomas Cardin</p>
+            <div class="footer-links">
+                <a href="https://github.com/ThomasCardin" target="_blank" class="footer-link">Github</a>
+                <a href="https://www.linkedin.com/in/thomas-cardin/" target="_blank" class="footer-link">Linkedin</a>
+            </div>
+            <p class="footer-copyright">© <span id="current-year"></span> Thomas Cardin. All rights reserved.</p>
+            <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 15l-6-6-6 6"/>
+                </svg>
+            </button>
         </div>
     </footer>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress"></div>
 
     <script src="script.js"></script>
 </body>
