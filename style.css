@@ -313,63 +313,18 @@ main {
     color: transparent;
 }
 
-/* Different colors for each base type */
-.site-name-animation[data-base="binary"] {
-    background: linear-gradient(135deg, #00ff00 0%, #00dd00 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="hexadecimal"] {
-    background: linear-gradient(135deg, #ff00ff 0%, #dd00dd 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="octal"] {
-    background: linear-gradient(135deg, #ff8800 0%, #dd6600 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="square"] {
-    background: linear-gradient(135deg, #ff0066 0%, #dd0044 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="square-root"] {
-    background: linear-gradient(135deg, #6600ff 0%, #5500dd 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="subtraction"] {
-    background: linear-gradient(135deg, #ffff00 0%, #dddd00 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="division"] {
-    background: linear-gradient(135deg, #00ffff 0%, #00dddd 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="multiplication"] {
-    background: linear-gradient(135deg, #ff6600 0%, #dd4400 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
-.site-name-animation[data-base="power"] {
-    background: linear-gradient(135deg, #ff0000 0%, #dd0000 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-}
-
+/* All base types use the same blue/cyan color */
+.site-name-animation[data-base="binary"],
+.site-name-animation[data-base="hexadecimal"],
+.site-name-animation[data-base="octal"],
+.site-name-animation[data-base="square"],
+.site-name-animation[data-base="square-root"],
+.site-name-animation[data-base="subtraction"],
+.site-name-animation[data-base="division"],
+.site-name-animation[data-base="multiplication"],
+.site-name-animation[data-base="power"],
 .site-name-animation[data-base="roman"] {
-    background: linear-gradient(135deg, #ffaa00 0%, #dd8800 100%);
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
     background-clip: text;
     -webkit-background-clip: text;
 }
