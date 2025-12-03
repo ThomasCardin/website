@@ -301,15 +301,15 @@ main {
     font-size: clamp(3rem, 8vw, 5.5rem);
     font-weight: 800;
     margin-bottom: var(--spacing-lg);
-    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .site-name-animation {
     display: inline-block;
     position: relative;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .site-name-animation::after {
