@@ -345,22 +345,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function animateSiteName() {
         const variants = [
-            'ninebasetwo.net',
-            '0000 1001',        // binary
-            '0x9',              // hexadecimal
-            '011',              // octal
-            '3²',               // square
-            '√81',              // square root
-            '10 - 1',           // subtraction
-            '18 / 2',           // division
-            '4.5 * 2',          // multiplication
-            '2³ + 1',           // power + addition
-            'IX'                // roman numeral
+            { text: 'ninebasetwo.net', type: 'default' },
+            { text: '0000 1001', type: 'binary' },        // binary
+            { text: '0x9', type: 'hexadecimal' },         // hexadecimal
+            { text: '011', type: 'octal' },               // octal
+            { text: '3²', type: 'square' },               // square
+            { text: '√81', type: 'square-root' },         // square root
+            { text: '10 - 1', type: 'subtraction' },      // subtraction
+            { text: '18 / 2', type: 'division' },         // division
+            { text: '4.5 * 2', type: 'multiplication' },  // multiplication
+            { text: '2³ + 1', type: 'power' },            // power + addition
+            { text: 'IX', type: 'roman' }                 // roman numeral
         ];
 
         let index = 0;
         while (true) {
-            await typeText(variants[index], 80);
+            siteNameElement.setAttribute('data-base', variants[index].type);
+            await typeText(variants[index].text, 80);
             await new Promise(resolve => setTimeout(resolve, 2000));
             await eraseText(50);
             await new Promise(resolve => setTimeout(resolve, 300));
