@@ -307,81 +307,71 @@ main {
     display: inline-block;
     position: relative;
     background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-    transition: all 0.5s ease;
+    color: transparent;
 }
 
 /* Different colors for each base type */
 .site-name-animation[data-base="binary"] {
-    background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #00ff00 0%, #00dd00 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="hexadecimal"] {
-    background: linear-gradient(135deg, #ff00ff 0%, #cc00cc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #ff00ff 0%, #dd00dd 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="octal"] {
-    background: linear-gradient(135deg, #ff8800 0%, #cc6600 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #ff8800 0%, #dd6600 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="square"] {
-    background: linear-gradient(135deg, #ff0066 0%, #cc0044 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #ff0066 0%, #dd0044 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="square-root"] {
-    background: linear-gradient(135deg, #6600ff 0%, #4400cc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #6600ff 0%, #5500dd 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="subtraction"] {
-    background: linear-gradient(135deg, #ffff00 0%, #cccc00 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #ffff00 0%, #dddd00 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="division"] {
-    background: linear-gradient(135deg, #00ffff 0%, #00cccc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #00ffff 0%, #00dddd 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="multiplication"] {
-    background: linear-gradient(135deg, #ff6600 0%, #cc4400 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #ff6600 0%, #dd4400 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="power"] {
-    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, #ff0000 0%, #dd0000 100%);
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation[data-base="roman"] {
     background: linear-gradient(135deg, #ffaa00 0%, #dd8800 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .site-name-animation::after {
